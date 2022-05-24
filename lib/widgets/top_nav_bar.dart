@@ -15,7 +15,9 @@ AppBar topNavBarr(
              fontWeight: FontWeight.bold, size:20 , 
              color: ligthGrey,)),
              Expanded(child: Container()),
-             IconButton(onPressed: (){}, icon:  Icon(Icons.settings, color: darck.withOpacity(0.7),)),
+             IconButton(onPressed: (){}, icon: 
+              Icon(Icons.settings,
+               color: darck.withOpacity(0.7),)),
              Stack(children: [
                IconButton(icon: const Icon(Icons.notifications),
                onPressed: (){},),
@@ -66,7 +68,7 @@ AppBar topNavBarr(
                 key.currentState!.openDrawer();
               },
               icon:  Icon(Icons.menu, color: ligthGrey,)),
-      backgroundColor: Colors.transparent,
+      backgroundColor: light,
       elevation: 0,
       iconTheme: IconThemeData(color: darck),
       

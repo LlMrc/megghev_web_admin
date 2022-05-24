@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 const int largeScreenSize = 1366;
 const int mediumScreenSize = 768;
@@ -30,23 +29,12 @@ class ResponsivWidget extends StatelessWidget {
       MediaQuery.of(context).size.width >= largeScreenSize;
 
   static bool isCustomScreen(BuildContext context) =>
-      MediaQuery.of(context).size.width >= largeScreenSize &&
+      MediaQuery.of(context).size.width >= mediumScreenSize &&
       MediaQuery.of(context).size.width <= custumScreenSize;
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-            textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)
-                .apply(bodyColor: Colors.black),
-            pageTransitionsTheme: const PageTransitionsTheme(builders: {
-              TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-              TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder()
-            }),
-            primaryColor: Colors.blue,
-            scaffoldBackgroundColor: Colors.white),
-        home: LayoutBuilder(
+    return  LayoutBuilder(
           builder: ((context, constraints) {
             double _width = constraints.maxWidth;
             if (_width >= largeScreenSize) {
@@ -58,6 +46,18 @@ class ResponsivWidget extends StatelessWidget {
             }
             //  double _heigth = constraints.maxWidth;
           }),
-        ));
+        );
   }
 }
+
+
+  // ThemeData(
+  //           textTheme: GoogleFonts.mulishTextTheme(Theme.of(context).textTheme)
+  //               .apply(bodyColor: Colors.black),
+  //           pageTransitionsTheme: const PageTransitionsTheme(builders: {
+  //             TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
+  //             TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder()
+  //           }),
+  //           primaryColor: Colors.blue,
+  //           scaffoldBackgroundColor: Colors.white),
+  //       home:

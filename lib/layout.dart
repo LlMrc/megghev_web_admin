@@ -14,13 +14,14 @@ class LayoutSite extends StatelessWidget {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
     return Scaffold(
       key: scaffoldKey,
-      drawer: const Drawer(
-        child: MenuSide(),
+      drawer:  const Drawer(
+        child: SideMenu(),
       ),
         appBar: topNavBarr(context, scaffoldKey, title),
         body: const ResponsivWidget(
           largeScreen: LargeScreen(),
           smallScreen: SmallScreen(),
+        
         ));
   }
 }

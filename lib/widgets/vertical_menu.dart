@@ -7,7 +7,7 @@ import 'custom_text.dart';
 
 class VerticalMenuItems extends StatelessWidget {
   final String itemName;
-  final Function onTap;
+  final VoidCallback onTap;
   const VerticalMenuItems(
       {Key? key, required this.itemName, required this.onTap})
       : super(key: key);
@@ -15,7 +15,7 @@ class VerticalMenuItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-         onTap: () => onTap,
+         onTap: onTap  ,
       onHover: (value) {
         value
             ? menuController.onHover(itemName)
@@ -36,7 +36,8 @@ class VerticalMenuItems extends StatelessWidget {
              mainAxisSize: MainAxisSize.min,
             children: [
                    Padding(padding: const EdgeInsets.all(16),
-                   child: menuController.buildIcon(itemName)),
+                   child: menuController.returnIconFor(itemName)),
+                   
                     if(!menuController.isActive(itemName))
                     
            Flexible(child: CustomText(text: itemName,
@@ -45,7 +46,7 @@ class VerticalMenuItems extends StatelessWidget {
              Flexible(child: CustomText(text: itemName,
              size: 18,
              fontWeight: FontWeight.bold,
-              color: darck,),)
+              color: darck),)
             ],
           ))
          ],) ,)), 
